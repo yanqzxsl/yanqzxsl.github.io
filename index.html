@@ -6,15 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>高严的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="高严的技术博客">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="高严的技术博客">
-<meta property="og:description">
+<meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高严的技术博客">
-<meta name="twitter:description">
   
     <link rel="alternative" href="/atom.xml" title="高严的技术博客" type="application/atom+xml">
   
@@ -79,7 +77,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -118,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/终端，工具，mac/" style="font-size: 10px;">终端，工具，mac</a>
 					</div>
 				</section>
 				
@@ -206,6 +204,150 @@
 
       <div class="body-wrap">
   
+    <article id="post-iOS 配置" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/13/iOS 配置/" class="article-date">
+  	<time datetime="2016-06-13T07:37:46.000Z" itemprop="datePublished">2016-06-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/13/iOS 配置/">iOS 配置</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="iOS-配置"><a href="#iOS-配置" class="headerlink" title="iOS 配置"></a>iOS 配置</h1><h4 id="修改状态栏颜色"><a href="#修改状态栏颜色" class="headerlink" title="修改状态栏颜色"></a>修改状态栏颜色</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="built_in">UIApplication</span> sharedApplication] setStatusBarStyle:<span class="built_in">UIStatusBarStyleDefault</span> animated:<span class="literal">NO</span>];</span><br></pre></td></tr></table></figure>
+<h4 id="关闭强制验证https"><a href="#关闭强制验证https" class="headerlink" title="关闭强制验证https"></a>关闭强制验证https</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 关闭强制验证https --&gt;</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;</span><br><span class="line">    &lt;true/&gt;</span><br><span class="line">&lt;/dict&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="iOS-国际化如何指定默认语言"><a href="#iOS-国际化如何指定默认语言" class="headerlink" title="iOS 国际化如何指定默认语言"></a><a href="https://segmentfault.com/q/1010000007972268" target="_blank" rel="noopener">iOS 国际化如何指定默认语言</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 指定默认语言 --&gt;</span><br><span class="line">&lt;key&gt;CFBundleDevelopmentRegion&lt;/key&gt;</span><br><span class="line">&lt;string&gt;zh-Hans&lt;/string&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="iOS权限设置"><a href="#iOS权限设置" class="headerlink" title="iOS权限设置"></a>iOS权限设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 相册 --&gt;   </span><br><span class="line">&lt;key&gt;NSPhotoLibraryUsageDescription&lt;/key&gt;   </span><br><span class="line">&lt;string&gt;App需要您的同意,才能访问相册&lt;/string&gt;   </span><br><span class="line">&lt;!-- 相机 --&gt;   </span><br><span class="line">&lt;key&gt;NSCameraUsageDescription&lt;/key&gt;   </span><br><span class="line">&lt;string&gt;App需要您的同意,才能访问相机&lt;/string&gt;   </span><br><span class="line">&lt;!-- 麦克风 --&gt;   </span><br><span class="line">&lt;key&gt;NSMicrophoneUsageDescription&lt;/key&gt;   </span><br><span class="line">&lt;string&gt;App需要您的同意,才能访问麦克风&lt;/string&gt;   </span><br><span class="line">&lt;!-- 位置 --&gt;   </span><br><span class="line">&lt;key&gt;NSLocationUsageDescription&lt;/key&gt;   </span><br><span class="line">&lt;string&gt;App需要您的同意,才能访问位置&lt;/string&gt;   </span><br><span class="line">&lt;!-- 在使用期间访问位置 --&gt;   </span><br><span class="line">&lt;key&gt;NSLocationWhenInUseUsageDescription&lt;/key&gt;   </span><br><span class="line">&lt;string&gt;App需要您的同意,才能在使用期间访问位置&lt;/string&gt;   </span><br><span class="line">&lt;!-- 始终访问位置 --&gt;   </span><br><span class="line">&lt;key&gt;NSLocationAlwaysUsageDescription&lt;/key&gt;   </span><br><span class="line">&lt;string&gt;App需要您的同意,才能始终访问位置&lt;/string&gt;   </span><br><span class="line">&lt;!-- 日历 --&gt;   </span><br><span class="line">&lt;key&gt;NSCalendarsUsageDescription&lt;/key&gt;   </span><br><span class="line">&lt;string&gt;App需要您的同意,才能访问日历&lt;/string&gt;   </span><br><span class="line">&lt;!-- 提醒事项 --&gt;   </span><br><span class="line">&lt;key&gt;NSRemindersUsageDescription&lt;/key&gt;   </span><br><span class="line">&lt;string&gt;App需要您的同意,才能访问提醒事项&lt;/string&gt;   </span><br><span class="line">&lt;!-- 运动与健身 --&gt;   </span><br><span class="line">&lt;key&gt;NSMotionUsageDescription&lt;/key&gt; </span><br><span class="line">&lt;string&gt;App需要您的同意,才能访问运动与健身&lt;/string&gt;   </span><br><span class="line">&lt;!-- 健康更新 --&gt;   </span><br><span class="line">&lt;key&gt;NSHealthUpdateUsageDescription&lt;/key&gt;   </span><br><span class="line">&lt;string&gt;App需要您的同意,才能访问健康更新 &lt;/string&gt;   </span><br><span class="line">&lt;!-- 健康分享 --&gt;   </span><br><span class="line">&lt;key&gt;NSHealthShareUsageDescription&lt;/key&gt;   </span><br><span class="line">&lt;string&gt;App需要您的同意,才能访问健康分享&lt;/string&gt;   </span><br><span class="line">&lt;!-- 蓝牙 --&gt;   </span><br><span class="line">&lt;key&gt;NSBluetoothPeripheralUsageDescription&lt;/key&gt;   </span><br><span class="line">&lt;string&gt;App需要您的同意,才能访问蓝牙&lt;/string&gt;   </span><br><span class="line">&lt;!-- 媒体资料库 --&gt;   </span><br><span class="line">&lt;key&gt;NSAppleMusicUsageDescription&lt;/key&gt;  </span><br><span class="line">&lt;string&gt;App需要您的同意,才能访问媒体资料库&lt;/string&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-mac安装node" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/12/mac安装node/" class="article-date">
+  	<time datetime="2016-06-12T07:37:46.000Z" itemprop="datePublished">2016-06-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/12/mac安装node/">iOS 配置</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="mac-安装-Node-js"><a href="#mac-安装-Node-js" class="headerlink" title="mac 安装 Node.js"></a>mac 安装 Node.js</h1><h3 id="1、Node-js是什么？"><a href="#1、Node-js是什么？" class="headerlink" title="1、Node.js是什么？"></a>1、Node.js是什么？</h3><blockquote>
+<p><a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">Node.js官网:</a><br>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时。 Node.js 使用高效、轻量级的事件驱动、非阻塞 I/O 模型。它的包生态系统，<a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a>，是目前世界上最大的开源库生态系统。</p>
+</blockquote>
+<blockquote>
+<p><a href="https://zh.wikipedia.org/wiki/Node.js" target="_blank" rel="noopener">维基百科:</a><br>Node.js 是一个能够在服务器端运行 JavaScript 的 开放源代码、跨平台 JavaScript 运行环境。</p>
+</blockquote>
+<p>简单的说 Node.js 就是运行在服务端的 JavaScript。使JavaScript 可以脱离浏览器运行；</p>
+<h3 id="2、安装Node-js"><a href="#2、安装Node-js" class="headerlink" title="2、安装Node.js"></a>2、安装Node.js</h3><h4 id="方式一：通过NVM安装指定版本的node"><a href="#方式一：通过NVM安装指定版本的node" class="headerlink" title="方式一：通过NVM安装指定版本的node"></a>方式一：通过NVM安装指定版本的node</h4><ol>
+<li><p>安装NVM（前提是你安装了homebrew） <br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install nvm</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在终端使用 NVM命令<br><br><code>$ cd ~</code><br><br><code>$ vim .bash_profile</code><br><br>在 .bash_profile文件中添加 <br></p>
+<pre>
+export NVM_DIR=~/.nvm 
+source $(brew --prefix nvm)/nvm.sh
+</pre> 
+然后重新source <br>
+` $ source .bash_profile `<br>
+**如果你安装了zsh，还需要配置.zshrc** <br>
+`$ vim  .zshrc` <br>
+<pre>
+export PATH=/usr/local/bin:$PATH
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"
+</pre></li>
+<li>使用nvm安装node<br>查看所有的node可用版本 <br><br><code>$ nvm ls-remote</code><br><br>下载你想要的版本  <br><br><code>$ nvm install xxx</code> <br><br>使用指定版本的node  <br><br><code>$ nvm use xxx</code> <br><br>每次启动终端都使用该版本的node  <br><br><code>$ nvm alias default xxx</code> <br><br>卸载指定版本号 <br><br><code>$ nvm uninstall xxx</code> </li>
+<li>安装完成检测 ，输出版本号证明安装成功<br><br><code>$ node -v</code><br><br><code>$ npm -v</code></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/终端，工具，mac/">终端，工具，mac</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -232,15 +374,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
       
     </div>
@@ -273,7 +415,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 高严
+    		&copy; 2018 高严
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
