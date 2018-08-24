@@ -4,19 +4,20 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Hello World | 高严的技术博客</title>
+  <title>获取当前iOS设备的IP | 高严的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536#import &amp;lt;arpa/inet.h&amp;gt;#import &amp;lt;ifaddrs.h&amp;gt;+ (NSString *)getIPAddress &amp;#123;    struct ifaddrs *interfaces = NULL;    struct ifa">
+<meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/03/23/hello-world/index.html">
+<meta property="og:title" content="获取当前iOS设备的IP">
+<meta property="og:url" content="http://yoursite.com/2016/08/24/获取当前iOS设备的IP/index.html">
 <meta property="og:site_name" content="高严的技术博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536#import &amp;lt;arpa/inet.h&amp;gt;#import &amp;lt;ifaddrs.h&amp;gt;+ (NSString *)getIPAddress &amp;#123;    struct ifaddrs *interfaces = NULL;    struct ifa">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2016-03-23T04:52:17.000Z">
+<meta property="og:updated_time" content="2018-08-24T10:34:58.422Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="获取当前iOS设备的IP">
+<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536#import &amp;lt;arpa/inet.h&amp;gt;#import &amp;lt;ifaddrs.h&amp;gt;+ (NSString *)getIPAddress &amp;#123;    struct ifaddrs *interfaces = NULL;    struct ifa">
   
     <link rel="alternative" href="/atom.xml" title="高严的技术博客" type="application/atom+xml">
   
@@ -206,11 +207,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-获取当前iOS设备的IP" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/23/hello-world/" class="article-date">
-  	<time datetime="2016-03-23T04:52:17.000Z" itemprop="datePublished">2016-03-23</time>
+      <a href="/2016/08/24/获取当前iOS设备的IP/" class="article-date">
+  	<time datetime="2016-08-24T10:28:33.000Z" itemprop="datePublished">2016-08-24</time>
 </a>
     </div>
   
@@ -223,7 +224,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      获取当前iOS设备的IP
     </h1>
   
 
@@ -231,6 +232,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -239,16 +244,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;arpa/inet.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;ifaddrs.h&gt;</span></span></span><br><span class="line">+ (<span class="built_in">NSString</span> *)getIPAddress &#123;</span><br><span class="line">    <span class="keyword">struct</span> ifaddrs *interfaces = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">struct</span> ifaddrs *temp_addr = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *wifiAddress = <span class="literal">nil</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *cellAddress = <span class="literal">nil</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// retrieve the current interfaces - returns 0 on success</span></span><br><span class="line">    <span class="keyword">if</span>(!getifaddrs(&amp;interfaces)) &#123;</span><br><span class="line">        <span class="comment">// Loop through linked list of interfaces</span></span><br><span class="line">        temp_addr = interfaces;</span><br><span class="line">        <span class="keyword">while</span>(temp_addr != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            sa_family_t sa_type = temp_addr-&gt;ifa_addr-&gt;sa_family;</span><br><span class="line">            <span class="keyword">if</span>(sa_type == AF_INET || sa_type == AF_INET6) &#123;</span><br><span class="line">                <span class="built_in">NSString</span> *name = [<span class="built_in">NSString</span> stringWithUTF8String:temp_addr-&gt;ifa_name];</span><br><span class="line">                <span class="built_in">NSString</span> *addr = [<span class="built_in">NSString</span> stringWithUTF8String:inet_ntoa(((<span class="keyword">struct</span> sockaddr_in *)temp_addr-&gt;ifa_addr)-&gt;sin_addr)]; <span class="comment">// pdp_ip0</span></span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"NAME: \"%@\" addr: %@"</span>, name, addr); <span class="comment">// see for yourself</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span>([name isEqualToString:<span class="string">@"en0"</span>]) &#123;</span><br><span class="line">                    <span class="comment">// Interface is the wifi connection on the iPhone</span></span><br><span class="line">                    wifiAddress = addr;</span><br><span class="line">                &#125; <span class="keyword">else</span></span><br><span class="line">                    <span class="keyword">if</span>([name isEqualToString:<span class="string">@"pdp_ip0"</span>]) &#123;</span><br><span class="line">                        <span class="comment">// Interface is the cell connection on the iPhone</span></span><br><span class="line">                        cellAddress = addr;</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            temp_addr = temp_addr-&gt;ifa_next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Free memory</span></span><br><span class="line">        freeifaddrs(interfaces);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">NSString</span> *addr = wifiAddress ? wifiAddress : cellAddress;</span><br><span class="line">    <span class="keyword">return</span> addr ? addr : <span class="string">@"0.0.0.0"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -257,15 +253,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/06/12/mac安装node/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/08/24/iOS-录音功能的实现/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Mac 安装 Node
+          iOS 录音功能的实现
         
       </div>
     </a>
   
+  
+    <a href="/2016/08/24/iOS键盘弹出与隐藏/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS键盘弹出与隐藏</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -298,7 +299,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://yoursite.com/2016/03/23/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="获取当前iOS设备的IP" data-title="获取当前iOS设备的IP" data-url="http://yoursite.com/2016/08/24/获取当前iOS设备的IP/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

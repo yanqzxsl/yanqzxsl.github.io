@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a>
+						<a href="/tags/NSDate/" style="font-size: 10px;">NSDate</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/录音/" style="font-size: 10px;">录音</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/时间/" style="font-size: 10px;">时间</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a> <a href="/tags/音频/" style="font-size: 10px;">音频</a>
 					</div>
 				</section>
 				
@@ -203,6 +203,182 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-时间-日期-NSDate、NSDateFormatter、NSCalendar" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/24/时间-日期-NSDate、NSDateFormatter、NSCalendar/" class="article-date">
+  	<time datetime="2016-08-24T10:37:19.000Z" itemprop="datePublished">2016-08-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/24/时间-日期-NSDate、NSDateFormatter、NSCalendar/">时间&amp;日期 NSDate、NSDateFormatter、NSCalendar</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、获取当前时间"><a href="#一、获取当前时间" class="headerlink" title="一、获取当前时间"></a>一、获取当前时间</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取当前时间</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)currentDateStr&#123;</span><br><span class="line">    <span class="built_in">NSDate</span> *currentDate = [<span class="built_in">NSDate</span> date];<span class="comment">//获取当前时间，日期</span></span><br><span class="line">    <span class="built_in">NSDateFormatter</span> *dateFormatter = [[<span class="built_in">NSDateFormatter</span> alloc] init];<span class="comment">// 创建一个时间格式化对象</span></span><br><span class="line">    [dateFormatter setDateFormat:<span class="string">@"YYYY/MM/dd hh:mm:ss SS "</span>];<span class="comment">//设定时间格式,这里可以设置成自己需要的格式</span></span><br><span class="line">    <span class="built_in">NSString</span> *dateString = [dateFormatter stringFromDate:currentDate];<span class="comment">//将时间转化成字符串</span></span><br><span class="line">    <span class="keyword">return</span> dateString;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二、获取当前时间戳"><a href="#二、获取当前时间戳" class="headerlink" title="二、获取当前时间戳"></a>二、获取当前时间戳</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取当前时间戳</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)currentTimeStr&#123;</span><br><span class="line">    <span class="built_in">NSDate</span>* date = [<span class="built_in">NSDate</span> dateWithTimeIntervalSinceNow:<span class="number">0</span>];<span class="comment">//获取当前时间0秒后的时间</span></span><br><span class="line">    <span class="built_in">NSTimeInterval</span> time=[date timeIntervalSince1970]*<span class="number">1000</span>;<span class="comment">// *1000 是精确到毫秒，不乘就是精确到秒</span></span><br><span class="line">    <span class="built_in">NSString</span> *timeString = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%.0f"</span>, time];</span><br><span class="line">    <span class="keyword">return</span> timeString;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="三、时间戳转时间"><a href="#三、时间戳转时间" class="headerlink" title="三、时间戳转时间"></a>三、时间戳转时间</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 时间戳转时间,时间戳为13位是精确到毫秒的，10位精确到秒</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)getDateStringWithTimeStr:(<span class="built_in">NSString</span> *)str&#123;</span><br><span class="line">    <span class="built_in">NSTimeInterval</span> time=[str doubleValue]/<span class="number">1000</span>;<span class="comment">//传入的时间戳str如果是精确到毫秒的记得要/1000</span></span><br><span class="line">    <span class="built_in">NSDate</span> *detailDate=[<span class="built_in">NSDate</span> dateWithTimeIntervalSince1970:time];</span><br><span class="line">    <span class="built_in">NSDateFormatter</span> *dateFormatter = [[<span class="built_in">NSDateFormatter</span> alloc] init]; <span class="comment">//实例化一个NSDateFormatter对象</span></span><br><span class="line">    <span class="comment">//设定时间格式,这里可以设置成自己需要的格式</span></span><br><span class="line">        [dateFormatter setDateFormat:<span class="string">@"yyyy-MM-dd HH:mm:ss SS"</span>];</span><br><span class="line">    <span class="built_in">NSString</span> *currentDateStr = [dateFormatter stringFromDate: detailDate];</span><br><span class="line">    <span class="keyword">return</span> currentDateStr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="四、字符串转时间戳"><a href="#四、字符串转时间戳" class="headerlink" title="四、字符串转时间戳"></a>四、字符串转时间戳</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//字符串转时间戳 如：2017-4-10 17:15:10</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)getTimeStrWithString:(<span class="built_in">NSString</span> *)str&#123;</span><br><span class="line">    <span class="built_in">NSDateFormatter</span> *dateFormatter = [[<span class="built_in">NSDateFormatter</span> alloc] init];<span class="comment">// 创建一个时间格式化对象</span></span><br><span class="line">    [dateFormatter setDateFormat:<span class="string">@"YYYY-MM-dd HH:mm:ss"</span>]; <span class="comment">//设定时间的格式</span></span><br><span class="line">    <span class="built_in">NSDate</span> *tempDate = [dateFormatter dateFromString:str];<span class="comment">//将字符串转换为时间对象</span></span><br><span class="line">    <span class="built_in">NSString</span> *timeStr = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%ld"</span>, (<span class="keyword">long</span>)[tempDate timeIntervalSince1970]*<span class="number">1000</span>];<span class="comment">//字符串转成时间戳,精确到毫秒*1000</span></span><br><span class="line">    <span class="keyword">return</span> timeStr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="五、获取NSDate的年月日"><a href="#五、获取NSDate的年月日" class="headerlink" title="五、获取NSDate的年月日"></a>五、获取NSDate的年月日</h3><h5 id="1-NSDateFormat获取"><a href="#1-NSDateFormat获取" class="headerlink" title="1.NSDateFormat获取"></a>1.NSDateFormat获取</h5><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSDate</span> *date =[<span class="built_in">NSDate</span> date];</span><br><span class="line"><span class="built_in">NSDateFormatter</span> *formatter = [[<span class="built_in">NSDateFormatter</span> alloc]init];</span><br><span class="line"></span><br><span class="line">[formatter setDateFormat:<span class="string">@"yyyy"</span>];</span><br><span class="line"><span class="built_in">NSInteger</span> currentYear=[[formatter stringFromDate:date] integerValue];</span><br><span class="line">[formatter setDateFormat:<span class="string">@"MM"</span>];</span><br><span class="line"><span class="built_in">NSInteger</span> currentMonth=[[formatter stringFromDate:date]integerValue];</span><br><span class="line">[formatter setDateFormat:<span class="string">@"dd"</span>];</span><br><span class="line"><span class="built_in">NSInteger</span> currentDay=[[formatter stringFromDate:date] integerValue];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"currentDate = %@ ,year = %ld ,month=%ld, day=%ld"</span>,date,currentYear,currentMonth,currentDay);</span><br></pre></td></tr></table></figure>
+<h5 id="2-NSDateComponents获取"><a href="#2-NSDateComponents获取" class="headerlink" title="2.NSDateComponents获取"></a>2.NSDateComponents获取</h5><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSDate</span>  *currentDate = [<span class="built_in">NSDate</span> date];</span><br><span class="line"><span class="built_in">NSCalendar</span> *calendar = [<span class="built_in">NSCalendar</span> currentCalendar];</span><br><span class="line"><span class="built_in">NSDateComponents</span> *components = [calendar components:<span class="built_in">NSCalendarUnitYear</span>|<span class="built_in">NSCalendarUnitMonth</span>|<span class="built_in">NSCalendarUnitDay</span> fromDate:currentDate];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSInteger</span> year=[components year];</span><br><span class="line"><span class="built_in">NSInteger</span> month=[components month];</span><br><span class="line"><span class="built_in">NSInteger</span> day=[components day];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"currentDate = %@ ,year = %ld ,month=%ld, day=%ld"</span>,currentDate,year,month,day);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NSDate/">NSDate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日期/">日期</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间/">时间</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-iOS-录音功能的实现" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/24/iOS-录音功能的实现/" class="article-date">
+  	<time datetime="2016-08-24T10:30:29.000Z" itemprop="datePublished">2016-08-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/24/iOS-录音功能的实现/">iOS 录音功能的实现</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-初始化录音设置"><a href="#1-初始化录音设置" class="headerlink" title="1.初始化录音设置"></a>1.初始化录音设置</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">AVAudioSession</span> * session = [<span class="built_in">AVAudioSession</span> sharedInstance];</span><br><span class="line">[session setCategory:<span class="built_in">AVAudioSessionCategoryPlayAndRecord</span> error:<span class="literal">nil</span>];</span><br><span class="line">[session setActive:<span class="literal">YES</span> error:<span class="literal">nil</span>];</span><br><span class="line"><span class="comment">//录音设置</span></span><br><span class="line"><span class="built_in">NSMutableDictionary</span> * recordSetting = [[<span class="built_in">NSMutableDictionary</span> alloc]init];</span><br><span class="line"><span class="comment">//设置录音格式</span></span><br><span class="line">[recordSetting  setValue:[<span class="built_in">NSNumber</span> numberWithInt:kAudioFormatMPEG4AAC] forKey:<span class="built_in">AVFormatIDKey</span>];</span><br><span class="line"><span class="comment">//设置录音采样率（HZ）</span></span><br><span class="line">[recordSetting setValue:[<span class="built_in">NSNumber</span> numberWithFloat:<span class="number">4000</span>] forKey:<span class="built_in">AVSampleRateKey</span>];</span><br><span class="line"><span class="comment">//录音通道数</span></span><br><span class="line">[recordSetting setValue:[<span class="built_in">NSNumber</span>  numberWithInt:<span class="number">1</span>] forKey:<span class="built_in">AVNumberOfChannelsKey</span>];</span><br><span class="line"><span class="comment">//线性采样位数</span></span><br><span class="line">[recordSetting  setValue:[<span class="built_in">NSNumber</span> numberWithInt:<span class="number">8</span>] forKey:<span class="built_in">AVLinearPCMBitDepthKey</span>];</span><br><span class="line"><span class="comment">//录音的质量</span></span><br><span class="line">[recordSetting  setValue:[<span class="built_in">NSNumber</span> numberWithInt:<span class="built_in">AVAudioQualityHigh</span>] forKey:<span class="built_in">AVEncoderAudioQualityKey</span>]; </span><br><span class="line"><span class="comment">//获取沙盒路径 作为存储录音文件的路径</span></span><br><span class="line"><span class="built_in">NSString</span> * strUrl = [<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>)lastObject];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"path = %@"</span>,strUrl);</span><br><span class="line"><span class="comment">//创建url</span></span><br><span class="line"><span class="built_in">NSURL</span> * url = [<span class="built_in">NSURL</span> fileURLWithPath:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@/voice.aac"</span>,strUrl]];</span><br><span class="line"><span class="keyword">self</span>.urlPlay = url;</span><br><span class="line"><span class="built_in">NSError</span> * error ;</span><br><span class="line"><span class="comment">//初始化AVAudioRecorder</span></span><br><span class="line"><span class="keyword">self</span>.recorder = [[<span class="built_in">AVAudioRecorder</span> alloc]initWithURL:url settings:recordSetting error:&amp;error];</span><br><span class="line"><span class="comment">//开启音量监测</span></span><br><span class="line"><span class="keyword">self</span>.recorder.meteringEnabled = <span class="literal">YES</span>;</span><br><span class="line"><span class="keyword">self</span>.recorder.delegate = <span class="keyword">self</span>;</span><br><span class="line"><span class="keyword">if</span>(error)&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"创建录音对象时发生错误，错误信息：%@"</span>,error.localizedDescription);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-开始录音"><a href="#2-开始录音" class="headerlink" title="2.开始录音"></a>2.开始录音</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>([_recorder prepareToRecord])&#123;</span><br><span class="line">        <span class="comment">//开始</span></span><br><span class="line">        [_recorder record];</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"开始录音"</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-录音结束"><a href="#3-录音结束" class="headerlink" title="3.录音结束"></a>3.录音结束</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取当前录音时长</span></span><br><span class="line">    <span class="keyword">float</span> voiceSize = <span class="keyword">self</span>.recorder.currentTime;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"录音时长 = %f"</span>,voiceSize);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(voiceSize &lt; <span class="number">3</span>)&#123;</span><br><span class="line">        [<span class="keyword">self</span>.recorder deleteRecording];</span><br><span class="line">        <span class="built_in">UIAlertView</span> * altView = [[<span class="built_in">UIAlertView</span> alloc]initWithTitle:<span class="literal">nil</span></span><br><span class="line">                                                          message:<span class="string">@"时长小于3秒，重新录制"</span> delegate:<span class="keyword">self</span> cancelButtonTitle:<span class="literal">nil</span> otherButtonTitles: <span class="literal">nil</span>];</span><br><span class="line">        [altView show];</span><br><span class="line">        </span><br><span class="line">        [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(performDismiss:) withObject:altView afterDelay:<span class="number">1.5</span>];</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (voiceSize &gt; <span class="number">60</span>)&#123;</span><br><span class="line">        </span><br><span class="line">        [<span class="keyword">self</span>.recorder deleteRecording];</span><br><span class="line">        <span class="built_in">UIAlertView</span> * altView = [[<span class="built_in">UIAlertView</span> alloc]initWithTitle:<span class="literal">nil</span></span><br><span class="line">                                                          message:<span class="string">@"时长大于1分钟，重新录制"</span> delegate:<span class="keyword">self</span> cancelButtonTitle:<span class="literal">nil</span> otherButtonTitles: <span class="literal">nil</span>];</span><br><span class="line">        [altView show];</span><br><span class="line">        </span><br><span class="line">        [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(performDismiss:) withObject:altView afterDelay:<span class="number">1.5</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span>.recorder stop];</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/录音/">录音</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音频/">音频</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-获取当前iOS设备的IP" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/24/获取当前iOS设备的IP/" class="article-date">
+  	<time datetime="2016-08-24T10:28:33.000Z" itemprop="datePublished">2016-08-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/24/获取当前iOS设备的IP/">获取当前iOS设备的IP</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;arpa/inet.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;ifaddrs.h&gt;</span></span></span><br><span class="line">+ (<span class="built_in">NSString</span> *)getIPAddress &#123;</span><br><span class="line">    <span class="keyword">struct</span> ifaddrs *interfaces = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">struct</span> ifaddrs *temp_addr = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *wifiAddress = <span class="literal">nil</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *cellAddress = <span class="literal">nil</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// retrieve the current interfaces - returns 0 on success</span></span><br><span class="line">    <span class="keyword">if</span>(!getifaddrs(&amp;interfaces)) &#123;</span><br><span class="line">        <span class="comment">// Loop through linked list of interfaces</span></span><br><span class="line">        temp_addr = interfaces;</span><br><span class="line">        <span class="keyword">while</span>(temp_addr != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            sa_family_t sa_type = temp_addr-&gt;ifa_addr-&gt;sa_family;</span><br><span class="line">            <span class="keyword">if</span>(sa_type == AF_INET || sa_type == AF_INET6) &#123;</span><br><span class="line">                <span class="built_in">NSString</span> *name = [<span class="built_in">NSString</span> stringWithUTF8String:temp_addr-&gt;ifa_name];</span><br><span class="line">                <span class="built_in">NSString</span> *addr = [<span class="built_in">NSString</span> stringWithUTF8String:inet_ntoa(((<span class="keyword">struct</span> sockaddr_in *)temp_addr-&gt;ifa_addr)-&gt;sin_addr)]; <span class="comment">// pdp_ip0</span></span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"NAME: \"%@\" addr: %@"</span>, name, addr); <span class="comment">// see for yourself</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span>([name isEqualToString:<span class="string">@"en0"</span>]) &#123;</span><br><span class="line">                    <span class="comment">// Interface is the wifi connection on the iPhone</span></span><br><span class="line">                    wifiAddress = addr;</span><br><span class="line">                &#125; <span class="keyword">else</span></span><br><span class="line">                    <span class="keyword">if</span>([name isEqualToString:<span class="string">@"pdp_ip0"</span>]) &#123;</span><br><span class="line">                        <span class="comment">// Interface is the cell connection on the iPhone</span></span><br><span class="line">                        cellAddress = addr;</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            temp_addr = temp_addr-&gt;ifa_next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Free memory</span></span><br><span class="line">        freeifaddrs(interfaces);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">NSString</span> *addr = wifiAddress ? wifiAddress : cellAddress;</span><br><span class="line">    <span class="keyword">return</span> addr ? addr : <span class="string">@"0.0.0.0"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-iOS键盘弹出与隐藏" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -338,7 +514,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/12/mac安装node/">iOS 配置</a>
+      <a class="article-title" href="/2016/06/12/mac安装node/">Mac 安装 Node</a>
     </h1>
   
 
