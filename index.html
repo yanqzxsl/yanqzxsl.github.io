@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/终端，工具，mac/" style="font-size: 10px;">终端，工具，mac</a>
+						<a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/终端，工具，mac/" style="font-size: 10px;">终端，工具，mac</a>
 					</div>
 				</section>
 				
@@ -203,6 +203,63 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-iOS键盘弹出与隐藏" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/24/iOS键盘弹出与隐藏/" class="article-date">
+  	<time datetime="2016-08-24T10:13:10.000Z" itemprop="datePublished">2016-08-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/24/iOS键盘弹出与隐藏/">iOS键盘弹出与隐藏</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[center addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(keyboardDidShow:) name:<span class="built_in">UIKeyboardWillShowNotification</span> object:<span class="literal">nil</span>];</span><br><span class="line">[center addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(keyboardDidHide:) name:<span class="built_in">UIKeyboardWillHideNotification</span> object:<span class="literal">nil</span>];</span><br><span class="line"><span class="comment">//  键盘弹出触发该方法</span></span><br><span class="line">- (<span class="keyword">void</span>)keyboardDidShow:(<span class="built_in">NSNotification</span> *)aNotification &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"键盘弹出"</span>);</span><br><span class="line">    <span class="comment">//获取键盘的高度</span></span><br><span class="line">    <span class="built_in">NSDictionary</span> *userInfo = [aNotification userInfo];</span><br><span class="line">    <span class="built_in">NSValue</span> *aValue = [userInfo objectForKey:<span class="built_in">UIKeyboardFrameEndUserInfoKey</span>];</span><br><span class="line">    <span class="built_in">CGRect</span> keyboardRect = [aValue <span class="built_in">CGRectValue</span>];</span><br><span class="line">    <span class="keyword">int</span> height = keyboardRect.size.height;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  键盘隐藏触发该方法</span></span><br><span class="line">- (<span class="keyword">void</span>)keyboardDidHide:(<span class="built_in">NSNotification</span> *)aNotification &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"键盘隐藏"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)dealloc&#123;</span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] removeObserver:<span class="keyword">self</span> name:<span class="built_in">UIKeyboardWillShowNotification</span> object:<span class="literal">nil</span>];</span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] removeObserver:<span class="keyword">self</span> name:<span class="built_in">UIKeyboardWillHideNotification</span> object:<span class="literal">nil</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-iOS 配置" class="article article-type-post" itemscope itemprop="blogPost">
   
